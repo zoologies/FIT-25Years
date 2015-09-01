@@ -36,11 +36,11 @@
 // status bank organisation
 // Byte   Value
 //    0   Species type (0 if uninitialised)
-//  1-2   minimum temperature
-//  3-4   maximum temperature
-//  5-6   minimum moisture
-//  7-8   maximum moisture
-// 9-10   time since reset
+//    1   minimum temperature
+//    2   maximum temperature
+//  3-4   minimum moisture
+//  5-6   maximum moisture
+//  7-8   time since reset
 
 // species names
 #define BANKSIA             "Silver Banksia"
