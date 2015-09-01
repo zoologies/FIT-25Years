@@ -125,16 +125,16 @@ void loop()
   if (temp > maxTemp)
     status.data[2] = temp;
   if (moisture < minMoisture) {
-    status.data[3] = minMoisture & 0xFF;
-    status.data[4] = (maxMoisture & 0xFF >> 8);
+    status.data[3] = lowByte(minMoisture);
+    status.data[4] = highByte(minMoisture);
   }
   if (moisture > maxMoisture) {
-    status.data[5] = maxMoisture & 0xFF;
-    status.data[6] = (maxMoisture & 0xFF >> 8);
+    status.data[5] = lowByte(maxMoisture);
+    status.data[6] = highByte(maxMoisture);
   }
   ++counter;
-  status.data[7] = counter & 0xFF;
-  status.data[8] = (counter & 0xFF >> 8);
+  status.data[7] = lowByte(counter);
+  status.data[8] = highByte(counter);
 
   String text = minTemp + "/" + maxTemp;
   text += "/";
