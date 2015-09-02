@@ -40,7 +40,8 @@
 //    2   maximum temperature
 //  3-4   minimum moisture
 //  5-6   maximum moisture
-//  7-8   time since reset
+//  7-8   current moisture
+//  8-9   time since reset
 
 // species names
 #define BANKSIA             "Silver Banksia"
@@ -125,16 +126,20 @@ void loop()
   if (temp > maxTemp)
     status.data[2] = temp;
   if (moisture < minMoisture) {
-    status.data[3] = lowByte(minMoisture);
-    status.data[4] = highByte(minMoisture);
+    status.data[3] = lowByte(moisture);
+    status.data[4] = highByte(moisture);
   }
   if (moisture > maxMoisture) {
-    status.data[5] = lowByte(maxMoisture);
-    status.data[6] = highByte(maxMoisture);
+    status.data[5] = lowByte(moisture);
+    status.data[6] = highByte(moisture);
   }
+  
+  status.data[7] = lowByte(moisture);
+  status.data[8] = highByte(moisture);
+  
   ++counter;
-  status.data[7] = lowByte(counter);
-  status.data[8] = highByte(counter);
+  status.data[9] = lowByte(counter);
+  status.data[10] = highByte(counter);
 
   String text = minTemp + "/" + maxTemp;
   text += "/";
