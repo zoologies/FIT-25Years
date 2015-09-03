@@ -94,7 +94,7 @@ void loop()
   uint8_t maxTemp = status.data[2];
   uint16_t minMoisture = status.data[3] | (status.data[4] << 8);
   uint16_t maxMoisture = status.data[5] | (status.data[6] << 8);
-  uint16_t counter = status.data[7] | (status.data[8] << 8);
+  uint16_t counter = status.data[9] | (status.data[10] << 8);
 
   uint8_t temp = Bean.getTemperature();
   uint8_t batteryLevel = Bean.getBatteryLevel();
